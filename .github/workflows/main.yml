@@ -17,4 +17,5 @@ jobs:
     runs-on: ubuntu-22.04
     steps: 
       - name: Saluda
-        run: echo "Hola a todos"
+        run: echo ${{ github.ref }}
+        
