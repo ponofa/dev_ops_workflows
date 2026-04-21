@@ -32,7 +32,8 @@ jobs:
        - name: Retorna Ref - Repository - Issue title
          run: echo ${{ github.ref}} - ${{ github.repository }} - ${{github.event.issue.title}} 
        - id: obtener_version
-         run: echo "version=1.0.0" >> $GITHUB_OUTPUT       
+         run: echo "version=1.0.0" >> $GITHUB_OUTPUT
+       - run: echo ${{steps.obtener_version.outputs.version}}
   mayor:
     if: ${{ inputs.edad >= 18 }}
     runs-on: ubuntu-latest
