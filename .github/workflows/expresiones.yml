@@ -21,19 +21,17 @@ on:
 env:
   AMBIENTE: produccion
   REGION: us-east-1
-jobs:  
+jobs:    
   tipo_issue: 
      if: ${{ github.event_name == 'issues' }}
-     runs-on: ubuntu-latest
+     runs-on: ubuntu-latest     
      env:
        NODE_ENV: development
-     steps:
-       - name: Definir variables
-         env:
-           MENSAJE: "Hola mundo" 
-       - run: echo $MENSAJE
+     steps:       
        - name: Correr script
          run: echo ${{ inputs.nombre }} es mayor de edad
+         env:
+           NOMBRE: prueba
        - name: Mostrar nombre de evento
          run: echo ${{ github.event_name }}
        - name: Mostrar usuario
