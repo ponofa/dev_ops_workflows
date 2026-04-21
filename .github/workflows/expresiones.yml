@@ -5,6 +5,7 @@ on:
       edad: 
         description: 'Edad' 
         required: true
+        default: 30
         type: number
       nombre: 
         description: 'Nombre' 
