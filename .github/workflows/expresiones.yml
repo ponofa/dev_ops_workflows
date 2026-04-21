@@ -18,7 +18,7 @@ on:
     types: 
       - closed
       - opened
-jobs:
+jobs:  
   tipo_issue: 
      if: ${{ github.event_name == 'issues' }}
      runs-on: ubuntu-latest
@@ -31,6 +31,10 @@ jobs:
          run: echo ${{ github.actor }}
        - name: Retorna Ref - Repository - Issue title
          run: echo ${{ github.ref}} - ${{ github.repository }} - ${{github.event.issue.title}} 
+       - id: obtener_version
+         run: echo "version=1.0.0" >> $GITHUB_OUTPUT
+       - name: Mostrar version
+         run: echo 'Version: ${{ steps.obtener_version.outputs.version }}'
   mayor:
     if: ${{ inputs.edad >= 18 }}
     runs-on: ubuntu-latest
